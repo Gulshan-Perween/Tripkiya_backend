@@ -1,4 +1,4 @@
-import partnerPackage from "../models/PartnerPackage.js";
+import partnerPackage from "../models/partnerPackage.js";
 // import PartnerPackage from "../models/PartnerPackage.js";
 
 // -------------------- Create Package --------------------

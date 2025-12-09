@@ -31,7 +31,7 @@ app.use(express.json());
    🔹 Amadeus Production API  
 ---------------------------*/
 import axios from "axios";
-import partnerPackage from "./models/PartnerPackage.js";
+import partnerPackage from "./models/partnerPackage.js";
 
 // 1️⃣ Get Production Access Token
 app.get("/api/amadeus/token", async (req, res) => {
