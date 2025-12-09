@@ -1,4 +1,4 @@
-import PackageDetails from "../models/PackageDetails.js";
+import PackageDetails from "../models/packageDetails.js";
 import Package from "../models/Package.js"; // ✅ Add this import
 
 export const addPackageDetails = async (req, res) => {

@@ -2,7 +2,7 @@
 // Add this to your controllers folder
 
 import Package from "../models/Package.js";
-import Partner from "../models/Partner.js";
+import Partner from "../models/partner.js";
 
 // 🔧 Assign a specific partner to all packages without a partner
 export const assignPartnerToPackages = async (req, res) => {
