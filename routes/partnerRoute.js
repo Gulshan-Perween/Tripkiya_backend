@@ -24,7 +24,7 @@ router.post("/login", partnerLogin);
 router.get("/me", protectPartner, partnerProfile);
 
 // -------- Packages ----------
-router.post("/packages", protectPartner, createPartnerPackage);
+router.post("/packages",protectPartner,createPartnerPackage);
 router.get("/packages", protectPartner, getMyPackages);
 router.put("/packages/:id", protectPartner, updatePartnerPackage);
 router.delete("/packages/:id", protectPartner, deletePartnerPackage);

@@ -1,2 +1,13 @@
-### For packages
-GET http://localhost:3000/api/partner/packages
+POST https://tripkiya-backend-c2f4.onrender.com/api/bookings
+Content-Type: application/json
+
+{
+  "fullName": "Gulshan Test",
+  "email": "ar0671362@gmail.com",
+  "phone": "9999999999",
+  "destination": "Manali",
+  "travelers": 3,
+  "date": "2025-01-10",
+  "packageId": "693285531b790a560af125d6",
+  "userId": "68f0abc87c3b85a6d4bb80b1"
+}

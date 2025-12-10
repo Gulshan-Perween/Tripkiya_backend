@@ -21,6 +21,8 @@ dotenv.config();
 const app = express();
 
 app.use(cookieParser());
+console.log("ENV TEST USER:", process.env.EMAIL_USER);
+console.log("ENV TEST PASS:", process.env.EMAIL_PASS);
 
 app.use(cors()); // allow all origins for testing
 

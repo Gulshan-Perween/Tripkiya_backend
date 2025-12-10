@@ -1,17 +1,24 @@
+import partner from "../models/partner.js";
 import partnerPackage from "../models/partnerPackage.js";
-// import PartnerPackage from "../models/PartnerPackage.js";
+
 
 // -------------------- Create Package --------------------
 export const createPartnerPackage = async (req, res) => {
   try {
         req.body.partner = req.partner._id;
+        // const partner2 = await partner.findById(req.partner._id)
 
-    const partnerId = req.partner._id;
+
+    const partnerId = req.body.partner;
+    console.log(partner);
+
 
     const newPackage = await partnerPackage.create({
       ...req.body,
       createdByPartner: partnerId,
     });
+
+    console.log("✅ Saved package with company details:", newPackage.toObject());
 
     res.status(201).json({
       message: "Package created successfully",
