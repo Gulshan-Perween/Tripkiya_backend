@@ -13,7 +13,7 @@ router.post("/contact", async (req, res) => {
 
     const saved = await Contact.create({ name, email, message });
 
-    await sendContactMail({ name, email, message });
+    await sendEmail({ name, email, message });
 
     return res.json({ success: true, message: "Message sent", data: saved });
   } catch (error) {
