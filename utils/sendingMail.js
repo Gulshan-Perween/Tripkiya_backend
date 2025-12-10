@@ -1,25 +1,57 @@
+// import nodemailer from "nodemailer";
+
+
+// export const sendEmail = async (to, subject, text) => {
+//   try {
+//     const transporter = nodemailer.createTransport({
+//       service: "gmail", // or "outlook", etc.
+//       auth: {
+//         user: process.env.EMAIL_USER, // your Gmail ID
+//         pass: process.env.EMAIL_PASS, // app password (not your Gmail password)
+//       },
+//     });
+
+//     const mailOptions = {
+//       from: `"Wanderlust Services" <${process.env.EMAIL_USER}>`,
+//       to,
+//       subject,
+//       text,
+//     };
+
+//     await transporter.sendMail(mailOptions);
+//     console.log("✅ Email sent successfully!");
+//   } catch (err) {
+//     console.error("❌ Error sending email:", err);
+//   }
+// };
+
 import nodemailer from "nodemailer";
 
 export const sendEmail = async (to, subject, text) => {
   try {
-    const transporter = nodemailer.createTransport({
-      service: "gmail", // or "outlook", etc.
-      auth: {
-        user: process.env.EMAIL_USER, // your Gmail ID
-        pass: process.env.EMAIL_PASS, // app password (not your Gmail password)
-      },
-    });
+
+ const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false, 
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  }
+});
+
 
     const mailOptions = {
-      from: `"Wanderlust Services" <${process.env.EMAIL_USER}>`,
+      from: process.env.EMAIL_USER,
       to,
       subject,
       text,
     };
 
     await transporter.sendMail(mailOptions);
-    console.log("✅ Email sent successfully!");
+    console.log("EMAIL SENT ✔");
+
   } catch (err) {
-    console.error("❌ Error sending email:", err);
+    console.log("EMAIL ERROR ❌", err);
   }
 };

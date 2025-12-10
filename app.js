@@ -13,6 +13,7 @@ import payment from "./routes/payments.js";
 import partnerRoute from "./routes/partnerRoute.js";
 import partnerBookingRoute from "./routes/partnerBookingRoute.js";
 import migrationRoutes from "./routes/migrationRoutes.js";
+import contactRoute from "./routes/contactRoute.js";
 
 
 dotenv.config();
@@ -237,6 +238,7 @@ app.use("/api/payments", payment);
 app.use("/api/partner", partnerRoute);
 app.use("/api/partner/booking", partnerBookingRoute);
 app.use("/api/packages", migrationRoutes);
+app.use("/api/contact", contactRoute);
 
 
 app.use("/api/package-details", packageDetailsRoutes);
