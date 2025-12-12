@@ -3,6 +3,7 @@ import {
   partnerSignup,
   partnerLogin,
   partnerProfile,
+
 } from "../controllers/partnerController.js";
 
 import {
@@ -10,11 +11,13 @@ import {
   updatePartnerPackage,
   deletePartnerPackage,
   getMyPackages,
+  getAllMyPackages,
 } from "../controllers/partnerPackageController.js";
 
 import { getPartnerBookings } from "../controllers/partnerBookingController.js";
 
 import { protectPartner } from "../middlewares/partnerAuth.js";
+
 
 const router = express.Router();
 
@@ -23,9 +26,12 @@ router.post("/signup", partnerSignup);
 router.post("/login", partnerLogin);
 router.get("/me", protectPartner, partnerProfile);
 
+
+
 // -------- Packages ----------
 router.post("/packages",protectPartner,createPartnerPackage);
 router.get("/packages", protectPartner, getMyPackages);
+router.get("/:id/packages", protectPartner, getAllMyPackages);
 router.put("/packages/:id", protectPartner, updatePartnerPackage);
 router.delete("/packages/:id", protectPartner, deletePartnerPackage);
 

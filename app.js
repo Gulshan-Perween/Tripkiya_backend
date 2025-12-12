@@ -14,6 +14,7 @@ import partnerRoute from "./routes/partnerRoute.js";
 import partnerBookingRoute from "./routes/partnerBookingRoute.js";
 import migrationRoutes from "./routes/migrationRoutes.js";
 import contactRoute from "./routes/contactRoute.js";
+import adminRoutes from "./routes/adminRoutes.js";
 
 
 dotenv.config();
@@ -35,6 +36,7 @@ app.use(express.json());
 ---------------------------*/
 import axios from "axios";
 import partnerPackage from "./models/partnerPackage.js";
+import partner from "./models/partner.js";
 
 // 1️⃣ Get Production Access Token
 app.get("/api/amadeus/token", async (req, res) => {
@@ -241,9 +243,29 @@ app.use("/api/partner", partnerRoute);
 app.use("/api/partner/booking", partnerBookingRoute);
 app.use("/api/packages", migrationRoutes);
 app.use("/api/contact", contactRoute);
+app.use("/api/admin", adminRoutes);
+
 
 
 app.use("/api/package-details", packageDetailsRoutes);
+
+const getPackages = async()=>{
+  const res = await partner.findById("693293cd127fe56387e50d30").populate("packages");
+  console.log(res);
+}
+getPackages();
+
+const getPartner = async()=>{
+  const res = await partner.findById("69341dfacceb63a0384db3d1");
+  console.log(res.packages);
+  const p = res.packages;
+  console.log(p);
+  const findPackages = await partnerPackage.find({
+    _id: { $in: p }
+  })
+  console.log(findPackages);
+}
+getPartner();
 
 const PORT = process.env.PORT || 3000;
 console.log(PORT);

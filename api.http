@@ -1,13 +1,27 @@
-POST https://tripkiya-backend-c2f4.onrender.com/api/bookings
+GET http://localhost:3000/api/partner/69341dfacceb63a0384db3d1/packages
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzQxZGZhY2NlYjYzYTAzODRkYjNkMSIsImlhdCI6MTc2NTAyMzIyNiwiZXhwIjoxNzY1NjI4MDI2fQ.k64ko-KU7KWUxMV86Raikn5jiM8cY5o7JE-_-IXIdqw
 Content-Type: application/json
 
 {
-  "fullName": "Gulshan Test",
-  "email": "ar0671362@gmail.com",
-  "phone": "9999999999",
-  "destination": "Manali",
-  "travelers": 3,
-  "date": "2025-01-10",
-  "packageId": "693285531b790a560af125d6",
-  "userId": "68f0abc87c3b85a6d4bb80b1"
+  "title": "Delhi",
+  "price": "12000",
+  "duration": "9 Days",
+  "description": "Amazing trip",
+  "numberOfPeople": 4,
+
+  "itinerary": [
+    { "day": "Day 1", "details": "Arrival and sightseeing" }
+  ],
+
+  "inclusions": ["Hotel", "Breakfast"],
+  "exclusions": ["Lunch"],
+  "images": ["https://example.com/img1.jpg"],
+
+  "companyDetails": {
+    "name": "Travel King Pvt Ltd",
+    "address": "Delhi, India",
+    "phone": "9876543210",
+    "email": "info@travelking.com"
+  }
 }
+
