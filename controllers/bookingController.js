@@ -2,7 +2,7 @@
 import Booking from "../models/bookingSchema.js";
 import Package from "../models/Package.js";
 import nodemailer from "nodemailer";
-import partnerPackage from "../models/partnerPackage.js";
+import partnerPackageSchema from "../models/partnerPackage.js";
 export const createBooking = async (req, res) => {
   try {
     const {
