@@ -32,15 +32,16 @@ router.get("/me", protectPartner, partnerProfile);
 
 // -------- Packages ----------
 router.post("/packages",protectPartner,createPartnerPackage);
-router.get("/packages", protectPartner, getMyPackages);
-router.get("/:id/packages", protectPartner, getAllMyPackages);
-router.put("/packages/:id", protectPartner, updatePartnerPackage);
-router.delete("/packages/:id", protectPartner, deletePartnerPackage);
 router.get(
   "/package-details/:id",
   protectPartner,
   getPartnerPackageDetails
 );
+router.get("/packages", protectPartner, getMyPackages);
+router.get("/:id/packages", protectPartner, getAllMyPackages);
+router.put("/packages/:id", protectPartner, updatePartnerPackage);
+router.delete("/packages/:id", protectPartner, deletePartnerPackage);
+
 
 
 // -------- Bookings ----------

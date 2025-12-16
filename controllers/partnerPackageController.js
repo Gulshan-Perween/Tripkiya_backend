@@ -114,12 +114,16 @@ export const getAllMyPackages = async(req,res) => {
 
 // -------------------- Get Single Partner Package Details --------------------
 export const getPartnerPackageDetails = async (req, res) => {
+  console.log("🧑 req.partner:", req.partner);
+  console.log("📦 packageId:", req.params.id);
+
   try {
     const packageId = req.params.id;
 
+    // ✅ USE CORRECT FIELD
     const pkg = await partnerPackage.findOne({
       _id: packageId,
-      createdByPartner: req.partner._id, // security
+      partner: req.partner._id,
     });
 
     if (!pkg) {
@@ -127,6 +131,8 @@ export const getPartnerPackageDetails = async (req, res) => {
         message: "Partner package not found",
       });
     }
+
+    console.log("🔥 Partner package details API HIT", pkg._id);
 
     res.json({
       success: true,
