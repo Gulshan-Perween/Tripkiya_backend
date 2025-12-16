@@ -12,6 +12,8 @@ import {
   deletePartnerPackage,
   getMyPackages,
   getAllMyPackages,
+    getPartnerPackageDetails, // ✅ ADD
+
 } from "../controllers/partnerPackageController.js";
 
 import { getPartnerBookings } from "../controllers/partnerBookingController.js";
@@ -34,6 +36,12 @@ router.get("/packages", protectPartner, getMyPackages);
 router.get("/:id/packages", protectPartner, getAllMyPackages);
 router.put("/packages/:id", protectPartner, updatePartnerPackage);
 router.delete("/packages/:id", protectPartner, deletePartnerPackage);
+router.get(
+  "/package-details/:id",
+  protectPartner,
+  getPartnerPackageDetails
+);
+
 
 // -------- Bookings ----------
 router.get("/bookings", protectPartner, getPartnerBookings);

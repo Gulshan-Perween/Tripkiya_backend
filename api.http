@@ -1,9 +1,9 @@
-GET http://localhost:3000/api/partner/69341dfacceb63a0384db3d1/packages
+GET http://localhost:3000/api/partner/693293cd127fe56387e50d30/packages
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzQxZGZhY2NlYjYzYTAzODRkYjNkMSIsImlhdCI6MTc2NTAyMzIyNiwiZXhwIjoxNzY1NjI4MDI2fQ.k64ko-KU7KWUxMV86Raikn5jiM8cY5o7JE-_-IXIdqw
 Content-Type: application/json
 
 {
-  "title": "Delhi",
+  "title": "London",
   "price": "12000",
   "duration": "9 Days",
   "description": "Amazing trip",

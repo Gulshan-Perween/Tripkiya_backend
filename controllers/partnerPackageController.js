@@ -51,7 +51,7 @@ export const getMyPackages = async (req, res) => {
 // -------------------- Update Package --------------------
 export const updatePartnerPackage = async (req, res) => {
   try {
-    const updated = await PartnerPackage.findOneAndUpdate(
+    const updated = await partnerPackage.findOneAndUpdate(
       {
         _id: req.params.id,
         createdByPartner: req.partner._id,
@@ -109,5 +109,32 @@ export const getAllMyPackages = async(req,res) => {
 
   }catch(err){
     console.log(err);
+  }
+};
+
+// -------------------- Get Single Partner Package Details --------------------
+export const getPartnerPackageDetails = async (req, res) => {
+  try {
+    const packageId = req.params.id;
+
+    const pkg = await partnerPackage.findOne({
+      _id: packageId,
+      createdByPartner: req.partner._id, // security
+    });
+
+    if (!pkg) {
+      return res.status(404).json({
+        message: "Partner package not found",
+      });
+    }
+
+    res.json({
+      success: true,
+      package: pkg,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
   }
 };

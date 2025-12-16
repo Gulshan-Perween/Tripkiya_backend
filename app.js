@@ -256,7 +256,7 @@ const getPackages = async()=>{
 getPackages();
 
 const getPartner = async()=>{
-  const res = await partner.findById("69341dfacceb63a0384db3d1");
+  const res = await partner.findById("692ac9769620c01ffa79fc8f")
   console.log(res.packages);
   const p = res.packages;
   console.log(p);

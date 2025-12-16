@@ -58,14 +58,33 @@ export const addPackage = async (req, res) => {
 // };
 
 
+// export const getAllPackages = async (req, res) => {
+//   try {
+//     const packages = await Package.find().populate("createdBy", "name email");
+//     res.status(200).json({ success: true, packages });
+//   } catch (error) {
+//     res.status(500).json({ success: false, message: error.message });
+//   }
+// };
+
 export const getAllPackages = async (req, res) => {
   try {
-    const packages = await Package.find().populate("createdBy", "name email");
-    res.status(200).json({ success: true, packages });
+    const packages = await Package.find()
+      .populate("partner", "agencyName email phone") // ✅ partner data
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      packages,
+    });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
+
 
 export const getPackageById = async (req, res) => {
   try {
