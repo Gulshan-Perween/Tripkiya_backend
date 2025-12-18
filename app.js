@@ -26,7 +26,7 @@ console.log("ENV TEST USER:", process.env.EMAIL_USER);
 console.log("ENV TEST PASS:", process.env.EMAIL_PASS);
 
 app.use(cors({
-  origin: "https://admin.tripkiya.com/",
+  origin: "https://admin.tripkiya.com",
   credentials: true, // if you use cookies / auth
 }));
 
