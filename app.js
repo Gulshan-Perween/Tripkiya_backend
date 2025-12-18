@@ -25,7 +25,10 @@ app.use(cookieParser());
 console.log("ENV TEST USER:", process.env.EMAIL_USER);
 console.log("ENV TEST PASS:", process.env.EMAIL_PASS);
 
-app.use(cors()); // allow all origins for testing
+app.use(cors({
+  origin: "https://tripkiya-dashboard.vercel.app",
+  credentials: true, // if you use cookies / auth
+}));
 
 connectDB();
 // app.use(cors(corsOptions));
