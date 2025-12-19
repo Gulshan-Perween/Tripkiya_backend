@@ -2,36 +2,6 @@ import Package from "../models/Package.js";
 
 
 
-// export const addPackage = async (req, res) => {
-
-//   try {
-//     console.log("📦 Incoming package data:", req.body);
-
-//     // 🧹 Remove _id if it exists (prevents duplicate key errors)
-//     if (req.body._id) delete req.body._id;
-
-//     // 🧩 Clean itinerary objects (remove any nested _id fields)
-//     if (Array.isArray(req.body.itinerary)) {
-//       req.body.itinerary = req.body.itinerary.map(({ day, details }) => ({
-//         day,
-//         details,
-//       }));
-//     }
-
-    
-
-//     // ✅ Create and save new package
-//     const newPackage = new Package(req.body);
-//     await newPackage.save();
-
-//         console.log("✅ Saved package with company details:", newPackage.toObject());
-
-//     res.status(201).json(newPackage);
-//   } catch (error) {
-//     console.error("❌ Error creating package:", error.message);
-//     res.status(500).json({ message: error.message });
-//   }
-// };
 
 
 export const addPackage = async (req, res) => {
