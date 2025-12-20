@@ -44,6 +44,11 @@ const bookingSchema = new mongoose.Schema(
       ref: "User",
       required: false,
     },
+    amountPaid: {
+  type: Number,
+  required: true,
+},
+
     package: {
       type: Schema.Types.ObjectId,
       ref: "Package",

@@ -54,44 +54,55 @@ export const updatePartnerPackage = async (req, res) => {
     const updated = await partnerPackage.findOneAndUpdate(
       {
         _id: req.params.id,
-        createdByPartner: req.partner._id,
+        partner: req.partner._id, // ✅ CORRECT FIELD
       },
       req.body,
       { new: true }
     );
 
     if (!updated) {
-      return res
-        .status(404)
-        .json({ message: "Package not found or unauthorized" });
+      return res.status(404).json({
+        message: "Package not found or unauthorized",
+      });
     }
 
-    res.json({
+    res.status(200).json({
+      success: true,
       message: "Package updated successfully",
       package: updated,
     });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
+
 
 // -------------------- Delete Package --------------------
 export const deletePartnerPackage = async (req, res) => {
   try {
     const deleted = await partnerPackage.findOneAndDelete({
       _id: req.params.id,
-      createdByPartner: req.partner._id,
+      partner: req.partner.id, // ✅ CORRECT FIELD
     });
 
     if (!deleted) {
-      return res
-        .status(404)
-        .json({ message: "Package not found or unauthorized" });
+      return res.status(404).json({
+        message: "Package not found or unauthorized",
+      });
     }
 
-    res.json({ message: "Package deleted successfully" });
+    res.status(200).json({
+      success: true,
+      message: "Package deleted successfully",
+    });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
 

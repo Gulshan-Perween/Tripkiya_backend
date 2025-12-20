@@ -77,6 +77,7 @@ console.log("✅ Package found:", pkg.title);
       date: new Date(date),
       checkOut: checkOut ? new Date(checkOut) : null,
       package: pkg._id,
+       amountPaid: Number(pkg.price),
       user: userId || null,
       partner: partnerId || pkg.partner || null,
       status: "confirmed",
